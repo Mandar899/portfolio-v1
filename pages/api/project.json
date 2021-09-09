@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Hulu Clone",
+    "description": "Hulu Clone build using React.JS (Next.js, Tailwind CSS, Responsive).",
+    "image": "https://i.imgur.com/QyNYIZc.png?1",
+    "live": "https://hulu-clone-v1.vercel.app/",
+    "source": "https://github.com/Mandar899/hulu-clone",
+    "tags": ["react", "next", "tailwind"]
+  },
+  {
+    "id": 2,
+    "name": "Cryptocurrency Finance Price Tracker",
+    "description": "A Cryptocurrency finance price trackering app created using React and TailwindCSS. We can search currencies and have it displayed on the browser. Also, the prices will be updated live whenever we refresh the page. We get all this data from a public API.",
+    "image": "https://i.imgur.com/EKnub7J.png?1",
+    "live": "https://cryptocurrency-tracker-react.netlify.app",
+    "source": "https://github.com/Mandar899/Cryptocurrency-tracker",
+    "tags": ["react", "tailwind"]
+  },
+  {
+    "id": 3,
+    "name": "CodeLab( FRONTEND )",
+    "description": "Simple Landing page build using React.JS and TailwindCSS, a utility-first CSS framework",
+    "image": "https://i.imgur.com/xAkVRkf.png",
+    "live": "https://codelab-react-tailwindcss.netlify.app",
+    "source": "https://github.com/Mandar899/codelab-react-tailwindcss",
+    "tags": ["react", "tailwind", "html"]
+  }
+]

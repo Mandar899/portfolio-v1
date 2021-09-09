@@ -1,82 +1,146 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { useState } from 'react';
+import { BsBook } from 'react-icons/bs';
+import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
+import { RiBookMarkFill } from 'react-icons/ri';
+import { AiOutlineProject, AiOutlineMail } from 'react-icons/ai';
+import Profile from '../components/Profile';
+import Repository from '../components/Repository';
+import Project from '../components/Project';
+import ContactMe from '../components/ContactMe';
+import Footer from '../components/Footer';
+import { getProjects } from './api/project';
 
-export default function Home() {
+const Home = ({ user, repos, projects }) => {
+  const [tab, setTab] = useState('profile');
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Mandar Manvi</title>
+        <link rel='icon' href='/favicon.ico' />
       </Head>
+      <div className='min-h-screen bg-[#0d1117]'>
+        {/* Navbar  */}
+        <Navbar />
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+        {/* Sidebar /  */}
+        <div className='container md:flex-nowrap text-gray-100 mx-auto py-10 md:px-16 px-2 flex flex-wrap'>
+          {/* Sidebar wrapper */}
+          <div className='md:w-1/4 w-full'>
+            <Sidebar user={user} />
+          </div>
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
+          {/* overview / repositories / projects / packages */}
+          <div className='px-1 w-full md:w-3/4 overflow-hidden'>
+            <nav className='flex border-b border-gray-800 lg:space-x-6 md:space-x-2.5 sm:space-x-0 items-center'>
+              {/* overview  */}
+              <div>
+                <button
+                  className='flex items-center w-full px-1 text-gray-300 text-sm'
+                  onClick={() => setTab('profile')}
+                >
+                  <BsBook className='mr-2 text-gray-600 hidden md:block' />
+                  <p className={tab === 'profile' && 'font-semibold'}>
+                    Overview
+                  </p>
+                </button>
+                <div
+                  className={
+                    tab === 'profile'
+                      ? 'border-b-2 w-full border-[#f78166] mt-2'
+                      : 'border-b-2 w-full border-transparent mt-2'
+                  }
+                ></div>
+              </div>
 
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
+              {/* repositories  */}
+              <div>
+                <button
+                  className='flex items-center w-full px-2 text-gray-300 text-sm'
+                  onClick={() => setTab('repositories')}
+                >
+                  <RiBookMarkFill className='mr-2 text-gray-600 hidden md:block' />
+                  <p className='text-sm flex items-center'>
+                    Repositories{' '}
+                    <span className='inline-flex items-center justify-center px-2 py-1 ml-1 mr-2 text-xs font-bold leading-none text-gray-300 bg-gray-700 rounded-full'>
+                      {user.public_repos}
+                    </span>
+                  </p>
+                </button>
+                <div
+                  className={
+                    tab === 'repositories'
+                      ? 'border-b-2 w-full border-[#f78166] mt-2'
+                      : 'border-b-2 w-full border-transparent mt-2'
+                  }
+                ></div>
+              </div>
 
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
+              {/* projects */}
+              <div>
+                <button
+                  onClick={() => setTab('projects')}
+                  className='flex items-center w-full px-1 text-gray-300 text-sm'
+                >
+                  <AiOutlineProject className='mr-2 text-gray-600 hidden md:block' />
+                  <p className='text-sm'>Projects</p>
+                </button>
+                <div
+                  className={
+                    tab === 'projects'
+                      ? 'border-b-2 w-full border-[#f78166] mt-2'
+                      : 'border-b-2 w-full border-transparent mt-2'
+                  }
+                ></div>
+              </div>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
+              {/* contact me  */}
+              <div>
+                <button
+                  onClick={() => setTab('contact-me')}
+                  className='flex  items-center px-1 text-gray-300 text-sm'
+                >
+                  <AiOutlineMail className='mr-2 text-gray-600 hidden md:block' />
+                  <p className='text-sm whitespace-nowrap'>Contact Me</p>
+                </button>
+                <div
+                  className={
+                    tab === 'contact-me'
+                      ? 'border-b-2 w-full border-[#f78166] mt-2'
+                      : 'border-b-2 w-full border-transparent mt-2'
+                  }
+                ></div>
+              </div>
+            </nav>
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+            {tab === 'profile' && <Profile user={user} />}
+            {tab === 'repositories' && <Repository repo={repos} />}
+            {tab === 'projects' && <Project projects={projects} />}
+            {tab === 'contact-me' && <ContactMe />}
+          </div>
         </div>
-      </main>
+        <div className='border-b border-gray-700'></div>
+        <Footer />
+      </div>
+    </>
+  );
+};
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
-    </div>
-  )
+export async function getServerSideProps() {
+  const userResp = await fetch(`https://api.github.com/users/Mandar899`);
+  const user = await userResp.json();
+
+  const reposResp = await fetch(
+    `https://api.github.com/users/Mandar899/repos?sort=created_at&per_page=10`
+  );
+  const repos = await reposResp.json();
+
+  const projects = await getProjects();
+
+  return {
+    props: { user, repos, projects },
+  };
 }
+
+export default Home;
