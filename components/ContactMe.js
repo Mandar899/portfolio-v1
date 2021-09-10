@@ -15,7 +15,7 @@ const ContactMe = () => {
     });
 
     if (res.status === 200) {
-      toast('Thank you for contacting us!', { type: 'success' });
+      toast('Thank you for contacting me!', { type: 'success' });
     } else {
       toast('Please re-check your inputs.', { type: 'error' });
     }
