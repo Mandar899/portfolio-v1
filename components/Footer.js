@@ -18,7 +18,7 @@ const Footer = () => {
         <p>Blog</p>
         <p>About</p>
       </div>
-      <div className='py-2 flex items-center justify-between bg-[#161b22] px-4'>
+      <div className='py-2 flex items-center md:justify-start justify-center bg-[#161b22] px-4'>
         <p className='flex flex-row text-gray-300 text-xs'>
           Built with
           <a href='https://nextjs.org' target='_blank'>
@@ -39,19 +39,6 @@ const Footer = () => {
           <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank'>
             &nbsp; 💖
           </a>
-        </p>
-
-        <p className='text-xs text-gray-300'>
-          Developed by
-          <div className='inline-block transform hover:scale-110 hover:-rotate-3 transition duration-300'>
-            <a
-              target='_blank'
-              className='hover:bg-red-500 rounded-md px-2 py-1  hover:text-gray-50 font-semibold underline hover:no-underline'
-              href='https://github.com/Mandar899'
-            >
-              Mandar Manvi
-            </a>
-          </div>
         </p>
       </div>
     </div>
