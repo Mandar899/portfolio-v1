@@ -6,6 +6,7 @@ import {
   DiPython,
   DiMysql,
   DiSass,
+  DiJavascript,
 } from 'react-icons/di';
 import {
   SiFirebase,
@@ -13,6 +14,8 @@ import {
   SiRedux,
   SiTailwindcss,
   SiNextDotJs,
+  SiSocketDotIo,
+  SiTwilio,
 } from 'react-icons/si';
 import { BsFillBootstrapFill } from 'react-icons/bs';
 
@@ -23,6 +26,9 @@ const Icons = ({ tag }) => {
       {tag === 'mongodb' && (
         <DiMongodb className='text-green-400 text-lg mr-1' />
       )}
+      {tag === 'javascript' && (
+        <DiJavascript className='text-green-400 text-lg mr-1' />
+      )}
       {tag === 'node' && (
         <DiNodejsSmall className='text-green-400 text-lg mr-1' />
       )}
@@ -32,6 +38,10 @@ const Icons = ({ tag }) => {
       {tag === 'firebase' && (
         <SiFirebase className='text-yellow-400 text-lg mr-1' />
       )}
+      {tag === 'socket.io' && (
+        <SiSocketDotIo className='text-yellow-400 text-lg mr-1' />
+      )}
+      {tag === 'twilio' && <SiTwilio className='text-red-500 text-lg mr-1' />}
       {/* {tag === 'mysql' && <DiMysql className='text-blue-400 text-lg mr-1' />}
       {tag === 'material-ui' && (
         <SiMaterialUi className='text-blue-500 text-lg mr-1' />

@@ -1,15 +1,42 @@
 [
   {
     "id": 1,
+    "name": "Airbnb v1",
+    "description": "Airbnb Clone built using React.JS (Next.js, TailwindCSS, Responsive). We are fetching data from an API and implementing SSR which improves user experience.",
+    "image": "https://i.imgur.com/6t3Dbl3.png",
+    "live": "https://airbnb-clone-mandar899.vercel.app",
+    "source": "https://github.com/Mandar899/airbnb-clone",
+    "tags": ["react", "next", "tailwind"]
+  },
+  {
+    "id": 2,
+    "name": "Next.js + Twilio",
+    "description": "Twilio's web service APIs allow software developers to make and receive phone calls, send and receive text messages, and conduct other communication activities programmatically. Integrating Twilio with Next.js you can deliver text messages",
+    "image": "https://i.imgur.com/MBv37gD.png",
+    "live": "https://next-twilio.vercel.app",
+    "source": "https://github.com/Mandar899/next-twilio",
+    "tags": ["react", "next", "tailwind", "twilio"]
+  },
+  {
+    "id": 2,
+    "name": "Facebook Clone",
+    "description": "This build is responsive real-time Facebook clone with Image Upload functionality & Powered by Firebase.",
+    "image": "https://i.imgur.com/pVa0fa0.png",
+    "live": "https://facebook-clone-v1.vercel.app",
+    "source": "https://github.com/Mandar899/facebook-clone",
+    "tags": ["react", "next", "tailwind", "firebase"]
+  },
+  {
+    "id": 3,
     "name": "Hulu Clone",
-    "description": "Hulu Clone build using React.JS (Next.js, Tailwind CSS, Responsive).",
+    "description": "Hulu Clone built using React.JS (Next.js, Tailwind CSS, Responsive).",
     "image": "https://i.imgur.com/QyNYIZc.png?1",
     "live": "https://hulu-clone-v1.vercel.app/",
     "source": "https://github.com/Mandar899/hulu-clone",
     "tags": ["react", "next", "tailwind"]
   },
   {
-    "id": 2,
+    "id": 4,
     "name": "Cryptocurrency Finance Price Tracker",
     "description": "A Cryptocurrency finance price trackering app created using React and TailwindCSS. We can search currencies and have it displayed on the browser. Also, the prices will be updated live whenever we refresh the page. We get all this data from a public API.",
     "image": "https://i.imgur.com/EKnub7J.png?1",
@@ -18,7 +45,7 @@
     "tags": ["react", "tailwind"]
   },
   {
-    "id": 3,
+    "id": 5,
     "name": "CodeLab( FRONTEND )",
     "description": "Simple Landing page build using React.JS and TailwindCSS, a utility-first CSS framework",
     "image": "https://i.imgur.com/xAkVRkf.png",
